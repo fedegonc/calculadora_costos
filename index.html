@@ -45,6 +45,10 @@
         .hidden {
             display: none;
         }
+        .breakdown {
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
     </style>
 </head>
 <body>
@@ -82,6 +86,7 @@
         </div>
         <button onclick="calcularTotal()">Calcular Total</button>
         <div class="total" id="resultado"></div>
+        <div class="breakdown" id="desglose"></div>
     </div>
 
     <script>
@@ -114,7 +119,15 @@
             const ganancia = costoBase * margenGanancia;
             const total = costoBase + ganancia;
 
+            // Mostrar desglose de los costos
             document.getElementById('resultado').innerText = `Costo Total: $${total.toFixed(2)} pesos`;
+            document.getElementById('desglose').innerHTML = `
+                <p><strong>Desglose de Costos:</strong></p>
+                <p>Costo del Hierro: $${costoHierro.toFixed(2)} pesos</p>
+                <p>Costo de la Lona: $${costoLona.toFixed(2)} pesos</p>
+                <p>Costo de Mano de Obra: $${manoObra.toFixed(2)} pesos</p>
+                <p>Ganancia: $${ganancia.toFixed(2)} pesos</p>
+            `;
         }
     </script>
 </body>
