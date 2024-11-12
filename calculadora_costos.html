@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Costos de Carteles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .row {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .total {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Calculadora de Costos de Carteles</h2>
+        <div class="row">
+            <label for="materiales">Costo de Materiales (pesos):</label>
+            <input type="number" id="materiales" value="3110">
+        </div>
+        <div class="row">
+            <label for="manoObra">Costo de Mano de Obra (pesos):</label>
+            <input type="number" id="manoObra" value="4000">
+        </div>
+        <div class="row">
+            <label for="margenGanancia">Margen de Ganancia (%):</label>
+            <input type="number" id="margenGanancia" value="27">
+        </div>
+        <button onclick="calcularTotal()">Calcular Total</button>
+        <div class="total" id="resultado"></div>
+    </div>
+    <script>
+        function calcularTotal() {
+            const materiales = parseFloat(document.getElementById('materiales').value);
+            const manoObra = parseFloat(document.getElementById('manoObra').value);
+            const margenGanancia = parseFloat(document.getElementById('margenGanancia').value) / 100;
+
+            const costoBase = materiales + manoObra;
+            const ganancia = costoBase * margenGanancia;
+            const total = costoBase + ganancia;
+
+            document.getElementById('resultado').innerText = `Costo Total: $${total.toFixed(2)} pesos`;
+        }
+    </script>
+</body>
+</html>
