@@ -71,14 +71,7 @@
             <label for="precioLona">Precio de la Lona por m² (pesos):</label>
             <input type="number" id="precioLona" value="500">
         </div>
-        <div class="row">
-            <label for="costillas">Número de Costillas Internas:</label>
-            <select id="costillas">
-                <option value="1">1</option>
-                <option value="2" selected>2</option>
-                <option value="3">3</option>
-            </select>
-        </div>
+        
         <div class="row">
             <label for="manoObra">Costo de Mano de Obra (pesos):</label>
             <input type="number" id="manoObra" value="4000">
@@ -102,13 +95,12 @@
             const ancho = parseFloat(document.getElementById('ancho').value);
             const precioHierro = parseFloat(document.getElementById('precioHierro').value);
             const precioLona = parseFloat(document.getElementById('precioLona').value);
-            const costillas = parseInt(document.getElementById('costillas').value);
             const manoObra = parseFloat(document.getElementById('manoObra').value);
             const margenGanancia = parseFloat(document.getElementById('margenGanancia').value) / 100;
 
             // Cálculo del costo de los materiales
             const perimetro = 2 * (largo + ancho);
-            const hierroNecesario = perimetro + (costillas * ancho);
+            const hierroNecesario = perimetro;
             const varasHierro = Math.ceil(hierroNecesario / 6);
             const costoHierro = varasHierro * precioHierro;
 
